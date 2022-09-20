@@ -9,6 +9,7 @@ let height = 720;
 const startSteam = () => {
     // 建立串流
     console.log("----- START STEAM ------");
+    
     navigator.mediaDevices.getUserMedia({
         video: {width, height},
         audio : false
@@ -48,6 +49,10 @@ async function detect() {
 
     
     ctx.clearRect(0,0, width, height);
+
+    // ctx.translate(canvas.width, 0);
+    // ctx.scale(-1, 1);
+
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
     faceapi.draw.drawDetections(canvas, resizedDetections);
     // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
@@ -69,5 +74,6 @@ video.addEventListener('play', ()=> {
     displaySize = {width, height};
     faceapi.matchDimensions(canvas, displaySize);
 
-    setInterval(detect, 100);
+    //等待時間
+    setInterval(detect, 1000);
 })
