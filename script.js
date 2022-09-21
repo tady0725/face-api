@@ -50,8 +50,8 @@ async function detect() {
     
     ctx.clearRect(0,0, width, height);
 
-    ctx.translate(canvas.width, 0);
-    ctx.scale(-1, 1);
+    // ctx.translate(canvas.width, 0);
+    // ctx.scale(-1, 1);
 
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
     faceapi.draw.drawDetections(canvas, resizedDetections);
